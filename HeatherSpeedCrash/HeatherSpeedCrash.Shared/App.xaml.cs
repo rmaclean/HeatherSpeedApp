@@ -39,6 +39,9 @@
             if (System.Diagnostics.Debugger.IsAttached)
             {
                 this.DebugSettings.EnableFrameRateCounter = true;
+                //this.DebugSettings.EnableRedrawRegions = true;
+                this.DebugSettings.IsBindingTracingEnabled = true;
+                //this.DebugSettings.IsOverdrawHeatMapEnabled = true;
             }
 #endif
 

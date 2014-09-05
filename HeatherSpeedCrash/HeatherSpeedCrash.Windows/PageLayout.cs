@@ -7,13 +7,13 @@
 
     public sealed class PageLayout : ContentControl
     {
-        public static readonly DependencyProperty FooterProperty = DependencyProperty.Register("Footer", typeof(object), typeof(PageLayout), new PropertyMetadata(new Grid()));
+        public static readonly DependencyProperty FooterProperty = DependencyProperty.Register("Footer", typeof(object), typeof(PageLayout), new PropertyMetadata(new Grid()));// <- HERE IS THE PROBLEM. Change from Grid to a string and it never fails
         public static readonly DependencyProperty GoBackProperty = DependencyProperty.Register("GoBack", typeof(ICommand), typeof(PageLayout), new PropertyMetadata(null));
-        public static readonly DependencyProperty HeaderProperty = DependencyProperty.Register("Header", typeof(object), typeof(PageLayout), new PropertyMetadata(new Grid()));
+        public static readonly DependencyProperty HeaderProperty = DependencyProperty.Register("Header", typeof(object), typeof(PageLayout), new PropertyMetadata(new Grid()));// <- HERE IS THE PROBLEM. Change from Grid to a string and it never fails
         public static readonly DependencyProperty LoadingPopupOpenProperty = DependencyProperty.Register("LoadingPopupOpen", typeof(bool), typeof(PageLayout), new PropertyMetadata(false));
         public static readonly DependencyProperty PageExitProperty = DependencyProperty.Register("PageExit", typeof(ICommand), typeof(PageLayout), new PropertyMetadata(null));
         public static readonly DependencyProperty PageHelpProperty = DependencyProperty.Register("PageHelp", typeof(ICommand), typeof(PageLayout), new PropertyMetadata(null));
-        public static readonly DependencyProperty PopupContentProperty = DependencyProperty.Register("PopupContent", typeof(object), typeof(PageLayout), new PropertyMetadata(new Grid()));
+        public static readonly DependencyProperty PopupContentProperty = DependencyProperty.Register("PopupContent", typeof(object), typeof(PageLayout), new PropertyMetadata(null));
         public static readonly DependencyProperty PopupOpenProperty = DependencyProperty.Register("PopupOpen", typeof(bool), typeof(PageLayout), new PropertyMetadata(false));
         public static readonly DependencyProperty ShowBackButtonProperty = DependencyProperty.Register("ShowBackButton", typeof(bool), typeof(PageLayout), new PropertyMetadata(true));
         public static readonly DependencyProperty ShowExitProperty = DependencyProperty.Register("ShowExit", typeof(bool), typeof(PageLayout), new PropertyMetadata(true));
