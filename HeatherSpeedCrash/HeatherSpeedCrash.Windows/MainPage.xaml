@@ -2,8 +2,8 @@
 
     <controls:PageLayout Title="HEATHER SPEED APP" SubTitle="designed to crash">
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Button x:Name="RunButton" Background="{StaticResource PrimaryRedColourBrush}" Click="Button_Click" Content="RUN!" FontSize="{StaticResource HugeFontSize}" />
-            <TextBlock x:Name="RunCounter" FontSize="{StaticResource HugeFontSize}" Foreground="{StaticResource PrimaryRedColourBrush}" />
+            <Button x:Name="RunButton" Click="Button_Click" Content="RUN!" FontSize="50" />
+            <TextBlock x:Name="RunCounter" FontSize="50" />
         </StackPanel>
     </controls:PageLayout>
 </Page>

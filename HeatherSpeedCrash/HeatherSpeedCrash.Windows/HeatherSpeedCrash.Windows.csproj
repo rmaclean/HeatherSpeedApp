@@ -109,14 +109,12 @@
     </SDKReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BoolToBrush.cs" />
     <Compile Include="BoolToVisibility.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="PageLayout.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TextButton.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
