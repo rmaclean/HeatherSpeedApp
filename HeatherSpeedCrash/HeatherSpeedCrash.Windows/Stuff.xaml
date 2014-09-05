@@ -37,7 +37,6 @@
                             <Grid Width="1920" Height="1080" Background="{TemplateBinding Background}">
                                 <Grid.Resources>
                                     <converters:BoolToVisibility x:Key="BoolToVisibility" />
-                                    <converters:NullToVisibility x:Key="NullToVisibility" />
                                 </Grid.Resources>
 
                                 <Grid.ColumnDefinitions>
