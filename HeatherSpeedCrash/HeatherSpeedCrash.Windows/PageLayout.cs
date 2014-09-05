@@ -7,9 +7,9 @@
 
     public sealed class PageLayout : ContentControl
     {
-        public static readonly DependencyProperty FooterProperty = DependencyProperty.Register("Footer", typeof(object), typeof(PageLayout), new PropertyMetadata(new Grid()));// <- HERE IS THE PROBLEM. Change from Grid to a string and it never fails
+        public static readonly DependencyProperty FooterProperty = DependencyProperty.Register("Footer", typeof(object), typeof(PageLayout), new PropertyMetadata(null));
         public static readonly DependencyProperty GoBackProperty = DependencyProperty.Register("GoBack", typeof(ICommand), typeof(PageLayout), new PropertyMetadata(null));
-        public static readonly DependencyProperty HeaderProperty = DependencyProperty.Register("Header", typeof(object), typeof(PageLayout), new PropertyMetadata(new Grid()));// <- HERE IS THE PROBLEM. Change from Grid to a string and it never fails
+        public static readonly DependencyProperty HeaderProperty = DependencyProperty.Register("Header", typeof(object), typeof(PageLayout), new PropertyMetadata(null));
         public static readonly DependencyProperty LoadingPopupOpenProperty = DependencyProperty.Register("LoadingPopupOpen", typeof(bool), typeof(PageLayout), new PropertyMetadata(false));
         public static readonly DependencyProperty PageExitProperty = DependencyProperty.Register("PageExit", typeof(ICommand), typeof(PageLayout), new PropertyMetadata(null));
         public static readonly DependencyProperty PageHelpProperty = DependencyProperty.Register("PageHelp", typeof(ICommand), typeof(PageLayout), new PropertyMetadata(null));
@@ -119,6 +119,17 @@
             base.OnApplyTemplate();
             this.snappedMode = GetTemplateChild("snappedMode") as Grid;
             this.fullMode = GetTemplateChild("fullMode") as Viewbox;
+            if (Header != null)
+            {
+                var headerContent = GetTemplateChild("headerContentPresenter") as ContentPresenter;
+                headerContent.Visibility = Visibility.Visible;
+            }
+
+            if (Footer != null)
+            {
+                var footerContentPresenter = GetTemplateChild("footerContentPresenter") as ContentPresenter;
+                footerContentPresenter.Visibility = Visibility.Visible;
+            }
         }
 
         private void Current_SizeChanged(object sender, Windows.UI.Core.WindowSizeChangedEventArgs e)
