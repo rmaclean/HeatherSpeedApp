@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HeatherSpeedCrash", "HeatherSpeedCrash", "{F66E05E7-9632-4C86-BD29-1873EE7F8A1F}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "HeatherSpeedCrash.Shared", "HeatherSpeedCrash\HeatherSpeedCrash.Shared\HeatherSpeedCrash.Shared.shproj", "{0ADB2C20-A542-4796-83F7-BC81F605C08A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeatherSpeedCrash.Windows", "HeatherSpeedCrash\HeatherSpeedCrash.Windows\HeatherSpeedCrash.Windows.csproj", "{0090C59E-9059-4256-9FD6-0B3A1BDCAEB4}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		HeatherSpeedCrash\HeatherSpeedCrash.Shared\HeatherSpeedCrash.Shared.projitems*{0090c59e-9059-4256-9fd6-0b3a1bdcaeb4}*SharedItemsImports = 4
+		HeatherSpeedCrash\HeatherSpeedCrash.Shared\HeatherSpeedCrash.Shared.projitems*{0adb2c20-a542-4796-83f7-bc81f605c08a}*SharedItemsImports = 13
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|ARM = Debug|ARM
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|ARM = Release|ARM
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0090C59E-9059-4256-9FD6-0B3A1BDCAEB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0090C59E-9059-4256-9FD6-0B3A1BDCAEB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0090C59E-9059-4256-9FD6-0B3A1BDCAEB4}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{0090C59E-9059-4256-9FD6-0B3A1BDCAEB4}.Debug|ARM.ActiveCfg = Debug|ARM
+		{0090C59E-9059-4256-9FD6-0B3A1BDCAEB4}.Debug|ARM.Build.0 = Debug|ARM
+		{0090C59E-9059-4256-9FD6-0B3A1BDCAEB4}.Debug|ARM.Deploy.0 = Debug|ARM
+		{0090C59E-9059-4256-9FD6-0B3A1BDCAEB4}.Debug|x64.ActiveCfg = Debug|x64
+		{0090C59E-9059-4256-9FD6-0B3A1BDCAEB4}.Debug|x64.Build.0 = Debug|x64
+		{0090C59E-9059-4256-9FD6-0B3A1BDCAEB4}.Debug|x64.Deploy.0 = Debug|x64
+		{0090C59E-9059-4256-9FD6-0B3A1BDCAEB4}.Debug|x86.ActiveCfg = Debug|x86
+		{0090C59E-9059-4256-9FD6-0B3A1BDCAEB4}.Debug|x86.Build.0 = Debug|x86
+		{0090C59E-9059-4256-9FD6-0B3A1BDCAEB4}.Debug|x86.Deploy.0 = Debug|x86
+		{0090C59E-9059-4256-9FD6-0B3A1BDCAEB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0090C59E-9059-4256-9FD6-0B3A1BDCAEB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0090C59E-9059-4256-9FD6-0B3A1BDCAEB4}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{0090C59E-9059-4256-9FD6-0B3A1BDCAEB4}.Release|ARM.ActiveCfg = Release|ARM
+		{0090C59E-9059-4256-9FD6-0B3A1BDCAEB4}.Release|ARM.Build.0 = Release|ARM
+		{0090C59E-9059-4256-9FD6-0B3A1BDCAEB4}.Release|ARM.Deploy.0 = Release|ARM
+		{0090C59E-9059-4256-9FD6-0B3A1BDCAEB4}.Release|x64.ActiveCfg = Release|x64
+		{0090C59E-9059-4256-9FD6-0B3A1BDCAEB4}.Release|x64.Build.0 = Release|x64
+		{0090C59E-9059-4256-9FD6-0B3A1BDCAEB4}.Release|x64.Deploy.0 = Release|x64
+		{0090C59E-9059-4256-9FD6-0B3A1BDCAEB4}.Release|x86.ActiveCfg = Release|x86
+		{0090C59E-9059-4256-9FD6-0B3A1BDCAEB4}.Release|x86.Build.0 = Release|x86
+		{0090C59E-9059-4256-9FD6-0B3A1BDCAEB4}.Release|x86.Deploy.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0ADB2C20-A542-4796-83F7-BC81F605C08A} = {F66E05E7-9632-4C86-BD29-1873EE7F8A1F}
+		{0090C59E-9059-4256-9FD6-0B3A1BDCAEB4} = {F66E05E7-9632-4C86-BD29-1873EE7F8A1F}
+	EndGlobalSection
+EndGlobal

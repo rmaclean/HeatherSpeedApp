@@ -1,0 +1,300 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:Interactions="using:Microsoft.Xaml.Interactions.Core" xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" xmlns:Media="using:Microsoft.Xaml.Interactions.Media" xmlns:controls="using:HSA.Controls" xmlns:converters="using:HSA.converters" xmlns:local="using:HeatherSpeedCrash">
+
+    <Color x:Key="Background">#FFFFFF</Color>
+    <Color x:Key="GreyColour">#999999</Color>
+    <Color x:Key="FontColour">#222222</Color>
+    <Color x:Key="PrimaryRedColour">#e5001c</Color>
+    <Color x:Key="SecondaryRedColour">#FF790000</Color>
+    <Color x:Key="DarkGreyColour">#4d5050</Color>
+    <Color x:Key="DarkBlueColour">#00385c</Color>
+    <Color x:Key="LightGreyColour">#F1F1F1</Color>
+    <Color x:Key="ButtonDisabledGreyColour">#939999</Color>
+
+    <x:Double x:Key="StupidlyHugeFontSize">150</x:Double>
+    <x:Double x:Key="HugeFontSize">86</x:Double>
+    <x:Double x:Key="TitleFontSize">54</x:Double>
+    <x:Double x:Key="SlightlyLargerFontSize">38</x:Double>
+    <x:Double x:Key="LargeFontSize">33</x:Double>
+    <x:Double x:Key="AlmostLargeFontSize">30</x:Double>
+    <x:Double x:Key="SlightlyBiggerFontSize">27</x:Double>
+    <x:Double x:Key="StandardFontSize">22</x:Double>
+    <x:Double x:Key="TinyFontSize">17</x:Double>
+
+    <FontFamily x:Key="RegularFont">Segoe UI</FontFamily>
+    <FontFamily x:Key="BoldFont">Segoe UI</FontFamily>
+
+    <SolidColorBrush x:Key="BackgroundBrush" Color="{StaticResource Background}" />
+    <SolidColorBrush x:Key="FontColourBrush" Color="{StaticResource FontColour}" />
+    <SolidColorBrush x:Key="PrimaryRedColourBrush" Color="{StaticResource PrimaryRedColour}" />
+    <SolidColorBrush x:Key="SecondaryRedColourBrush" Color="{StaticResource SecondaryRedColour}" />
+    <SolidColorBrush x:Key="DarkBlueColourBrush" Color="{StaticResource DarkBlueColour}" />
+    <SolidColorBrush x:Key="DarkGreyColourBrush" Color="{StaticResource DarkGreyColour}" />
+    <SolidColorBrush x:Key="GreyColourBrush" Color="{StaticResource GreyColour}" />
+    <SolidColorBrush x:Key="LightGreyColourBrush" Color="{StaticResource LightGreyColour}" />
+    <SolidColorBrush x:Key="ButtonDisabledGreyColourBrush" Color="{StaticResource ButtonDisabledGreyColour}" />
+
+    <Style x:Key="Base" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{ThemeResource FontColourBrush}" />
+        <Setter Property="FontFamily" Value="{StaticResource RegularFont}" />
+        <Setter Property="FontWeight" Value="Light" />
+        <Setter Property="FontSize" Value="{StaticResource SlightlyBiggerFontSize}" />
+        <Setter Property="TextWrapping" Value="WrapWholeWords" />
+    </Style>
+
+    <Style x:Key="BackButton" TargetType="Button">
+        <Setter Property="Foreground" Value="{ThemeResource PrimaryRedColourBrush}" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="HorizontalAlignment" Value="Right" />
+        <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}" />
+        <Setter Property="FontWeight" Value="Normal" />
+        <Setter Property="Margin" Value="0,15,0,0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid x:Name="RootGrid" Background="Transparent">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="PointerOver" />
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Ellipse" Storyboard.TargetProperty="Stroke">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource AppBarItemForegroundThemeBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Ellipse" Storyboard.TargetProperty="Fill">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource AppBarItemForegroundThemeBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Content" Storyboard.TargetProperty="Foreground">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource AppBarItemPressedForegroundThemeBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootGrid" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="FocusStates">
+                                <VisualState x:Name="Focused">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0" Storyboard.TargetName="FocusVisualWhite" Storyboard.TargetProperty="Opacity" To="1" />
+                                        <DoubleAnimation Duration="0" Storyboard.TargetName="FocusVisualBlack" Storyboard.TargetProperty="Opacity" To="1" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Unfocused" />
+                                <VisualState x:Name="PointerFocused" />
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Grid Width="41" Height="41">
+                            <Ellipse x:Name="Ellipse" Fill="{ThemeResource AppBarItemBackgroundThemeBrush}" Stroke="{StaticResource PrimaryRedColourBrush}" StrokeThickness="2" UseLayoutRounding="False" />
+                            <ContentPresenter x:Name="Content" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Foreground="{TemplateBinding Foreground}">
+                                <PathIcon Data="F1 M 17.4126,18L 24.0752,11L 17.6558,11L 8.77931,20.4678L 8.77931,20.5322L 17.6558,30L 24.0752,30L 17.4126,23L 32,23L 32,18L 17.4126,18 Z " />
+                            </ContentPresenter>
+                        </Grid>
+                        <Rectangle x:Name="FocusVisualWhite" IsHitTestVisible="False" Opacity="0" Stroke="{ThemeResource FocusVisualWhiteStrokeThemeBrush}" StrokeDashArray="1,1" StrokeDashOffset="1.5" StrokeEndLineCap="Square" />
+                        <Rectangle x:Name="FocusVisualBlack" IsHitTestVisible="False" Opacity="0" Stroke="{ThemeResource FocusVisualBlackStrokeThemeBrush}" StrokeDashArray="1,1" StrokeDashOffset="0.5" StrokeEndLineCap="Square" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <Style TargetType="controls:TextButton">
+        <Setter Property="FontSize" Value="64" />
+        <Setter Property="Background" Value="{StaticResource BackgroundBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource DarkBlueColourBrush}" />
+        <Setter Property="SelectedColour" Value="{StaticResource PrimaryRedColourBrush}" />
+        <Setter Property="FontFamily" Value="{StaticResource RegularFont}" />
+        <Setter Property="FontWeight" Value="Light" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="VerticalAlignment" Value="Bottom" />
+        <Setter Property="Margin" Value="0,0,0,20" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:TextButton">
+                    <Grid Background="Transparent">
+                        <Grid.Resources>
+                            <converters:BoolToBrush x:Key="BoolToBrush" FalseBrush="{StaticResource DarkBlueColourBrush}" TrueBrush="{StaticResource PrimaryRedColourBrush}" />
+                            <converters:BoolToVisibility x:Key="BoolToVis" />
+                        </Grid.Resources>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="PointerOver" />
+
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource PrimaryRedColourBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ButtonDisabledForegroundThemeBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="FocusStates">
+                                <VisualState x:Name="Focused">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0" Storyboard.TargetName="FocusVisualWhite" Storyboard.TargetProperty="Opacity" To="1" />
+                                        <DoubleAnimation Duration="0" Storyboard.TargetName="FocusVisualBlack" Storyboard.TargetProperty="Opacity" To="1" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Unfocused" />
+                                <VisualState x:Name="PointerFocused" />
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+
+                        <TextBlock x:Name="ContentPresenter" Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="Center" AutomationProperties.AccessibilityView="Raw" DataContext="{TemplateBinding IsSelected}" FontSize="{TemplateBinding FontSize}" Foreground="{Binding Converter={StaticResource BoolToBrush}}" Text="{TemplateBinding Content}" />
+
+                        <Rectangle x:Name="FocusVisualWhite" IsHitTestVisible="False" Opacity="0" Stroke="{ThemeResource FocusVisualWhiteStrokeThemeBrush}" StrokeDashArray="1,1" StrokeDashOffset="1.5" StrokeEndLineCap="Square" />
+                        <Rectangle x:Name="FocusVisualBlack" IsHitTestVisible="False" Opacity="0" Stroke="{ThemeResource FocusVisualBlackStrokeThemeBrush}" StrokeDashArray="1,1" StrokeDashOffset="0.5" StrokeEndLineCap="Square" />
+                        <Path Margin="0,60,0,0" Data="M6.44774,59.1109 L451.063,59.1109" DataContext="{TemplateBinding IsSelected}" Stretch="Fill" Stroke="{StaticResource PrimaryRedColourBrush}" StrokeThickness="2" UseLayoutRounding="False" Visibility="{Binding Converter={StaticResource BoolToVis}}" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="TitleHeader" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource PrimaryRedColourBrush}" />
+        <Setter Property="FontSize" Value="{StaticResource TitleFontSize}" />
+        <Setter Property="FontFamily" Value="{StaticResource RegularFont}" />
+        <Setter Property="FontWeight" Value="Light" />
+    </Style>
+
+    <Style x:Key="SubTitleTextBlock" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="{StaticResource SlightlyBiggerFontSize}" />
+        <Setter Property="Foreground" Value="{StaticResource DarkGreyColourBrush}" />
+        <Setter Property="FontFamily" Value="{StaticResource RegularFont}" />
+        <Setter Property="FontWeight" Value="Light" />
+    </Style>
+
+    <Style TargetType="controls:PageLayout">
+        <Setter Property="Background" Value="White" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:PageLayout">
+                    <Grid Background="White">
+                        <Grid.Resources>
+                            <Storyboard x:Key="ShowPopup">
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="popup" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                    <EasingDoubleKeyFrame KeyTime="0" Value="0" />
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1" />
+                                </DoubleAnimationUsingKeyFrames>
+                            </Storyboard>
+
+                            <Storyboard x:Key="HidePopup">
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="popup" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                    <SplineDoubleKeyFrame KeyTime="0" Value="1" />
+                                    <SplineDoubleKeyFrame KeyTime="0:0:0.1" Value="0" />
+                                </DoubleAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </Grid.Resources>
+
+                        <Grid x:Name="snappedMode" Margin="30" Visibility="Collapsed">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="100" />
+                                <RowDefinition Height="100" />
+                                <RowDefinition Height="30" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Row="1" FontSize="{StaticResource LargeFontSize}" Foreground="{StaticResource PrimaryRedColourBrush}" Text="We need a little more room" />
+                            <TextBlock Grid.Row="3" Style="{StaticResource Base}" Text="Signing up for a new account is a big deal, so we need a little more room to get ensure everything is as easy as possible for you. Please return the app to full screen to continue with the process." />
+                        </Grid>
+                        <Viewbox x:Name="fullMode">
+                            <Grid Width="1920" Height="1080" Background="{TemplateBinding Background}">
+                                <Grid.Resources>
+                                    <converters:BoolToVisibility x:Key="BoolToVisibility" />
+                                </Grid.Resources>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="120" />
+                                    <ColumnDefinition Width="215" />
+                                    <ColumnDefinition Width="1260" />
+                                    <ColumnDefinition Width="325" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="60" />
+                                    <RowDefinition Height="135" />
+                                    <RowDefinition Height="690" />
+                                    <RowDefinition Height="60" />
+                                    <RowDefinition Height="135" />
+                                </Grid.RowDefinitions>
+
+                                <Popup x:Name="popup" Grid.Row="0" Grid.RowSpan="5" Grid.Column="0" Grid.ColumnSpan="4" Width="1920" Height="1080" IsOpen="{TemplateBinding PopupOpen}">
+                                    <Interactivity:Interaction.Behaviors>
+                                        <Interactions:DataTriggerBehavior Binding="{Binding IsOpen, ElementName=popup}" Value="True">
+                                            <Media:ControlStoryboardAction Storyboard="{StaticResource ShowPopup}" />
+                                        </Interactions:DataTriggerBehavior>
+                                        <Interactions:DataTriggerBehavior Binding="{Binding IsOpen, ElementName=popup}" Value="False">
+                                            <Media:ControlStoryboardAction Storyboard="{StaticResource HidePopup}" />
+                                        </Interactions:DataTriggerBehavior>
+                                    </Interactivity:Interaction.Behaviors>
+
+                                    <Border Width="1920" Height="1080" Background="#A5000000">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Content="{TemplateBinding PopupContent}" />
+                                    </Border>
+                                </Popup>
+
+                                <Popup x:Name="loadingPopup" Grid.Row="0" Grid.RowSpan="5" Grid.Column="0" Grid.ColumnSpan="4" Width="1920" Height="1080" IsOpen="{TemplateBinding LoadingPopupOpen}">
+                                    <Interactivity:Interaction.Behaviors>
+                                        <Interactions:DataTriggerBehavior Binding="{Binding IsOpen, ElementName=popup}" Value="True">
+                                            <Media:ControlStoryboardAction Storyboard="{StaticResource ShowPopup}" />
+                                        </Interactions:DataTriggerBehavior>
+                                        <Interactions:DataTriggerBehavior Binding="{Binding IsOpen, ElementName=popup}" Value="False">
+                                            <Media:ControlStoryboardAction Storyboard="{StaticResource HidePopup}" />
+                                        </Interactions:DataTriggerBehavior>
+                                    </Interactivity:Interaction.Behaviors>
+
+                                    <Border Width="1920" Height="1080" Background="#A5000000">
+                                        <ProgressRing Width="300" Height="300" Foreground="{StaticResource SecondaryRedColourBrush}" IsActive="True" />
+                                    </Border>
+                                </Popup>
+                                <ContentPresenter Grid.Row="0" Grid.RowSpan="2" Grid.Column="2" VerticalAlignment="Bottom" Content="{TemplateBinding Header}" />
+                                <Button Grid.Row="1" Grid.Column="0" Command="{TemplateBinding GoBack}" DataContext="{TemplateBinding ShowBackButton}" Style="{StaticResource BackButton}" Visibility="{Binding Converter={StaticResource BoolToVisibility}}" />
+                                <Grid Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Margin="20,0,0,0" HorizontalAlignment="Left">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="70" />
+                                        <RowDefinition Height="70" />
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Grid.Row="0" Style="{StaticResource TitleHeader}" Text="{TemplateBinding Title}" />
+                                    <TextBlock Grid.Row="1" Width="1100" HorizontalAlignment="Left" Style="{StaticResource SubTitleTextBlock}" Text="{TemplateBinding SubTitle}" TextWrapping="Wrap" />
+                                </Grid>
+                                <Grid Grid.Row="1" Grid.Column="3" Margin="0,20,0,0" VerticalAlignment="Top">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1*" />
+                                        <ColumnDefinition Width="4*" />
+                                        <ColumnDefinition Width="1*" />
+                                        <ColumnDefinition Width="4*" />
+                                        <ColumnDefinition Width="3*" />
+                                    </Grid.ColumnDefinitions>
+                                    <controls:TextButton Grid.Column="1" Command="{TemplateBinding PageHelp}" Content="Help" DataContext="{TemplateBinding ShowHelp}" FontSize="{StaticResource SlightlyBiggerFontSize}" Visibility="{Binding Converter={StaticResource BoolToVisibility}}" />
+                                    <controls:TextButton Grid.Column="3" Command="{TemplateBinding PageExit}" Content="Exit" DataContext="{TemplateBinding ShowExit}" FontSize="{StaticResource SlightlyBiggerFontSize}" Visibility="{Binding Converter={StaticResource BoolToVisibility}}" />
+                                </Grid>
+
+                                <ContentPresenter Grid.Row="2" Grid.Column="2" Width="1260" Height="690" Content="{TemplateBinding Content}">
+                                    <ContentPresenter.Transitions>
+                                        <TransitionCollection>
+                                            <EntranceThemeTransition />
+                                        </TransitionCollection>
+                                    </ContentPresenter.Transitions>
+                                </ContentPresenter>
+                                <ContentPresenter Grid.Row="3" Grid.RowSpan="2" Grid.Column="2" VerticalAlignment="Top" Content="{TemplateBinding Footer}" />
+                            </Grid>
+                        </Viewbox>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
